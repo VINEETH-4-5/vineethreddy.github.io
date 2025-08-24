@@ -17,11 +17,11 @@ export default function Recruiter() {
             <a className="px-4 py-2 rounded-lg border" href="tel:+917036546590">Call: +91 7036546590</a>
           </div>
 
-          <div className="mt-4 text-sm text-slate-700 dark:text-slate-200 grid grid-cols-2 gap-2">
-            <div><strong>Email:</strong> yadanaparthivineethreddy@gmail.com</div>
-            <div><strong>Phone:</strong> +91 7036546590</div>
-            <div><strong>Location:</strong> Bangalore, India</div>
-            <div><strong>LinkedIn:</strong> <a className="text-[#06b6d4]" href="https://linkedin.com/in/vineeth-reddy-y">linkedin.com/in/vineeth-reddy-y</a></div>
+          <div className="mt-4 text-sm text-slate-700 dark:text-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="break-words"><strong>Email:</strong> <span className="break-words">yadanaparthivineethreddy@gmail.com</span></div>
+            <div className="break-words"><strong>Phone:</strong> <span className="break-words">+91 7036546590</span></div>
+            <div className="break-words"><strong>Location:</strong> Bangalore, India</div>
+            <div className="break-words"><strong>LinkedIn:</strong> <a className="text-[#06b6d4] break-words" href="https://linkedin.com/in/vineeth-reddy-y">linkedin.com/in/vineeth-reddy-y</a></div>
           </div>
         </div>
 
