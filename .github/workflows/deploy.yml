@@ -38,7 +38,7 @@ jobs:
 
       - name: Simulate git push (debug)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           set -e
           echo "--- git config ---"
@@ -56,7 +56,7 @@ jobs:
       - name: Deploy (gh-pages)
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
           allow_empty_commit: true
