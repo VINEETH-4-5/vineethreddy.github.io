@@ -36,6 +36,23 @@ jobs:
           git remote -v
           git branch -a
 
+      - name: Simulate git push (debug)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          echo "--- git config ---"
+          git config --list
+          echo "--- remote URL (masked) ---"
+          git remote -v | sed -E 's#(https://)[^@]+@#\1***@#g'
+          echo "--- fetch gh-pages (may fail if missing) ---"
+          git fetch origin gh-pages || echo 'fetch gh-pages failed (branch may not exist)'
+          echo "--- attempt dry-run push to gh-pages (will not change remote) ---"
+          # Use token-authenticated URL to ensure we exercise push auth
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}"
+          git push --dry-run origin HEAD:gh-pages || echo 'dry-run push failed (see exit code)'
+          echo "--- end simulate ---"
+
       - name: Deploy (gh-pages)
         uses: peaceiris/actions-gh-pages@v4
         with:
