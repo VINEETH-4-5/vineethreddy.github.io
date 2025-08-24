@@ -1,0 +1,11 @@
+{
+  "name": "VINEETH REDDY YADANAPARTHI — Portfolio",
+  "short_name": "Vineeth",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08102a",
+  "theme_color": "#7C3AED",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
